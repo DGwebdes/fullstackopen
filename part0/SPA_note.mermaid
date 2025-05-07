@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note over browser: New Note Submission registered (Form submitted)
+    Note right of browser: Event handler fires on form submission, preventing default behavior of sending data and causing a new GET request
+
+    Note right of browser: Event handler creates a new note, pushes it into the Notes array and rerenders the page with the new note
+    Note over browser: POST request with data as JSON. Content-Type header to inform server of JSON format data
+    Note right of browser: Finally, `sendToServer()` function sends the new note data to the server via POST request to the /new_note_spa URL
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    server-->>browser: HTTP Status 201 Created
