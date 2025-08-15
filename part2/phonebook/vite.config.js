@@ -7,7 +7,7 @@ export default defineConfig({
     server: {
         proxy: {
             "/api": {
-                target: "http://localhost:3001",
+                target: "https://okies-c5ee.onrender.com:10000",
                 changeOrigin: true,
             },
         },
