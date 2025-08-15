@@ -1,9 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
 const app = express();
-const PORT = 3002;
+const cors = require("cors");
+const PORT = 3001;
 
 app.use(express.json());
+app.use(cors());
 app.use(morgan("tiny"));
 app.use(
     morgan(function (token, req, res) {
@@ -11,6 +13,7 @@ app.use(
         return JSON.stringify(data);
     }),
 );
+app.use(express.static("dist"));
 
 let persons = [
     {

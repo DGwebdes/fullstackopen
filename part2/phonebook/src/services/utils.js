@@ -1,5 +1,5 @@
 import axios from "axios";
-const localURL = "http://localhost:3001/persons/";
+const localURL = "/api/persons/";
 
 function getAll() {
     let data = axios.get(localURL).then((response) => response.data);
